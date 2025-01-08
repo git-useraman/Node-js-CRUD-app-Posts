@@ -11,17 +11,23 @@ const PORT = process.env.PORT || 3500;
 // Connect to MongoDB
 connectDB()
 
+// Custom middleware logger
 app.use(logger)
 
+// Template engine EJS
 app.set('view engine', 'ejs')
 
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+// Built-in middleware to handle urlencoded form data
+app.use(express.urlencoded({ extended: false }))
 
+// Built-in middleware for json
+app.use(express.json())
+
+// Serve static files
 app.use('/', express.static(path.join(__dirname, '/public')))
 
+// Routes
 app.use('/posts', require("./routes/api/posts"))
-
 app.get('/', require('./routes/root'))
 
 app.use(errorHandler)
