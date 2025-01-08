@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= message %></h1>
+    <h1>Homepage</h1>
+
+    <form>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+        <button type="submit">Submit</button>
+    </form>
+
+    <button id="getPosts">Get All Posts</button>
+    <div id="output"></div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <ul>
+        <% people.forEach(person => { %>
+            <li><%= person %></li>
+        <% }) %>
+    </ul>
+</body>
+</html>
